@@ -1,0 +1,10 @@
+<form class="col s12" action="/division/<%= @division.id %>" method="post">
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="hidden" name="_method" value="patch">
+      <input type="text" name="name">
+      <label for="name">Enter Division Name</label>
+      <button type="submit" class="btn waves-effect waves-medium">Update<i class="material-icons right">send</i></button>
+    </div>
+  </div>
+</form>

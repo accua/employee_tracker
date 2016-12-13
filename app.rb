@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require './lib/division'
 require './lib/employee'
 also_reload 'lib/**/*.rb'
+require 'pry'
 
 get '/' do
   @divisions = Division.all
@@ -20,6 +21,19 @@ end
 
 get '/divisions/:id' do
   @division = Division.find(params[:id].to_i)
+  @employees = @division.employees
+  erb :division
+end
+
+get '/division/:id/edit' do
+  @division = Division.find(params[:id])
+  erb :division_edit
+end
+
+patch '/division/:id' do
+  @division = Division.find(params[:id].to_i)
+  name = params[:name]
+  @division.update({name: name})
   @employees = @division.employees
   erb :division
 end
