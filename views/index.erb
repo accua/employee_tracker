@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Employee Tracker</h1>
+
+  <% @divisions.each do |division| %>
+    <ul>
+      <li><a href="/divisions/<%= division.id() %>"><%= division.name %></a></li>
+    </ul>
+  <% end %>
+
+  <form action='/division/new' method="post">
+    <label for="division">Enter a division</label>
+    <input name="division" type="text" autofocus>
+    <button type="submit" class="btn waves-effect waves-light">Submit<i class="material-icons right">send</i></button>
+    <a class="btn btn-default" href="/method">Clear List</a>
+  </form>
+</div>
